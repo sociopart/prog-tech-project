@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AskIt</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mt-3">
+      <% flash.each do |k, v| %>
+        <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>

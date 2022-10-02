@@ -1,0 +1,41 @@
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Log in</h2>
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="form-outline mb-4">
+                <%= f.label :email, class: "form-label" %><br />
+                <%= f.email_field :email, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="form-outline mb-4">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, class: "form-label form-control form-control-lg", autocomplete: "new-password" , autocomplete: "current-password" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+              <% end %>
+
+              <div class="actions">
+                <%= f.submit "Log in",  class: "btn btn-success btn-block btn-lg gradient-custom-4 text-body" %>
+              </div>
+
+              <%= render "devise/shared/links" %>
+              <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

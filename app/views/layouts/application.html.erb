@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>AskIt</title>
+    <title>RuFans</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
   </head>
 
@@ -16,15 +15,28 @@
         <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           </ul>
+          <p class="navbar-text float-right">
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Выход", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Регистрация", new_user_registration_path, :class => 'navbar-link'  %> |
+              <%= link_to "Вход", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
+            |
+            <%= link_to 'RuFans', root_path %>
+            </p>
         </nav>
       </div>
     </header>
 
-    <main class="container mt-3">
-      <% flash.each do |k, v| %>
-        <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
       <% end %>
-
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </main>
   </body>

@@ -1,0 +1,18 @@
+/* manrope-regular - vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('manrope-v13-vietnamese_latin-ext_latin_greek_cyrillic-ext_cyrillic-regular.svg#Manrope') format('svg'); /* Legacy iOS */
+}
+
+html, body {
+  font-family: 'Manrope' !important;
+}
+

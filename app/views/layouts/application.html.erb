@@ -8,6 +8,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "common", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "landing", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "reset", "data-turbo-track": "reload" %>
   </head>
@@ -17,7 +18,7 @@
       <div class="container">
         <div class="mt-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <img src="assets/logo.svg">
+            <img src="/assets/logo.svg">
           </a>
 
           <form class="mb-3 mb-lg-0 me-lg-3">
@@ -30,8 +31,8 @@
           </ul>
 
           <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2 rounded-rect">Вход</button>
-            <button type="button" class="btn btn-warning rounded-rect ">Зарегистрироваться</button>
+            <a href="/users/sign_in" class="btn btn-outline-light me-2 rounded-rect btn-danger"> Вход </a>
+            <a href="/users/sign_up" class="btn btn-outline-light me-2 rounded-rect"> Зарегистрироваться </a>
           </div>
         </div>
       </div>

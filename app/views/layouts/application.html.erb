@@ -31,8 +31,14 @@
           </ul>
 
           <div class="text-end">
-            <a href="/users/sign_in" class="btn btn-outline-light me-2 rounded-rect btn-danger"> Вход </a>
-            <a href="/users/sign_up" class="btn btn-outline-light me-2 rounded-rect"> Зарегистрироваться </a>
+            <% if user_signed_in? %>
+            
+              <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'btn btn-outline-light me-2 rounded-rect' %> 
+              <%= link_to "Выход", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-light me-2 rounded-rect btn-danger' %> 
+            <% else %>
+              <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-outline-light me-2 rounded-rect btn-danger'  %> 
+              <%= link_to "Вход", new_user_session_path, :class => 'btn btn-outline-light me-2 rounded-rect'  %>
+            <% end %>
           </div>
         </div>
       </div>

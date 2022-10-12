@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :encrypted_password, null: false, default: ""
       t.string :name 
       t.date   :birthday
+      t.boolean :gender
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -33,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      t.integer :role, default: 0
 
       t.timestamps null: false
     end

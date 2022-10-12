@@ -16,14 +16,27 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <%= f.label :email, class: "form-label" %><br />
+                  <%= f.label :email, class: "form-label" %>
                   <%= f.email_field :email, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "email" %>
                 </div>
 
                 <div class="form-outline mb-4">
+                  <%= f.label :birthday, class: "form-label" %>
+                  <%= f.date_field :birthday, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "email" %>
+                </div>
+
+                <table>
+                      <td><%= f.label 'gender', 'women?' %></td>
+                      <td><%= f.radio_button :gender, true %></td>
+                    
+                      <td><%= f.label 'gender', 'Men' %></td>
+                      <td><%= f.radio_button :gender, false %></td>
+                </table>
+
+                <div class="form-outline mb-4">
                   <%= f.label :password, class: "form-label" %>
                   <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em>(<%= 8 %> characters minimum)</em>
                   <% end %><br />
                   <%= f.password_field :password, class: "form-label form-control form-control-lg", autocomplete: "new-password" %>
                 </div>

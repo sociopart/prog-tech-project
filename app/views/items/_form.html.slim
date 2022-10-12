@@ -1,0 +1,10 @@
+= form_for @item, method: "post" do |f|
+  .f-group
+    = f.text_field :name, placeholder: 'name'
+  .f-group
+    = f.text_area :description, placeholder: 'комментарий..'
+  .f-group
+    = f.text_field :price, placeholder: 'price'
+    = f.hidden_field :user_id, value: current_user.id
+  .f-group-action
+    = f.submit  "Create", class: "btn btn-success btn-block btn-lg gradient-custom-4 text-body"

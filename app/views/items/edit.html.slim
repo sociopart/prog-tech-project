@@ -1,0 +1,17 @@
+table
+  thead
+    tr
+      th style="width: 3%; text-align: center; font-weight: bold" №
+      th style="width: 5%; text-align: center; font-weight: bold" Имя
+      th style="width: 5%; text-align: center; font-weight: bold" Price
+      th style="width: 5%; text-align: center; font-weight: bold" Edit
+      th style="width: 100%"
+  tbody
+      tr
+          td scope="col"
+            = "#{1}."
+          td scope="col"
+            = @item.name
+          td scope ="col"
+            = @item.price
+        

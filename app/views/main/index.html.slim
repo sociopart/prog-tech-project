@@ -1,16 +1,22 @@
+main
+  .banner_sec
+    .banner_box
+      .banner_innr
+        .container
+          .row
+            .col-md-6
+              .banner_details
+                b class="ban_heading"
+                  | Заработай на своем таланте с RuFans.
+                
+                p
 
-.container
-  .caption-inner
-    .row
-      .col-md-6 class = "landing-caption gap-3"
-        .row class = "p-2 big-caption"
-          b Заработай на своём контенте с нами.
-        .row class = "p-2"
-          | Или поддержи любимых авторов.
-        .row class = "p-2"
-          a href="/users/sign_in" class = "btn btn-outline-light me-2 rounded-rect explore_btn"
-            | Вход
-      .col-md-6
-        a class = "col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          img src = "assets/index-highlight.svg"
-.start-banner
+                p
+                  | abpba kfskjdjkfsdkjfsdkjdfkj
+                
+                p
+                = link_to 'Попробовать', new_user_session_path, 
+                  class: "explore_btn"
+            .col-md-6
+              .banner_pic class="show-image"
+                img src="assets/index-highlight.svg" alt=""

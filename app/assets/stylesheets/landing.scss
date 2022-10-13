@@ -1,69 +1,480 @@
-.search-rectangle{
-  box-sizing: border-box;
-  //position: absolute;
-  width: 333px;
-  //height: 40px;
-  margin-left: 20px;
-  background: #FBD8FF;
-  border: 2px solid #60435F;
-  border-radius: 25px;
+body,
+html {
+	height: 100%
 }
 
-.main-header {
-  background: linear-gradient(180deg, #F08EFC 0%, rgba(240, 142, 252, 0) 100%);
-  width: 100%;
-  height: 60px;
-  left: 0px;
-  top: 0px;
+#wrap {
+	min-height: 100%;
+	background: #f8f8f8;
+	margin-top: 60px
 }
 
-html, body {
-  background: linear-gradient(116.82deg, #F08EFC 0%, #EE5166 100%) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 100%;
+@media only screen and (max-width:768px) {
+	#wrap {
+		margin-top: 10px
+	}
 }
 
-input#search-text {
-  margin-left: 2%;
-  margin-top: 2%;
-  width: 90%;
-  border: none;
-  background: #FBD8FF;
+#main {
+	overflow: auto
 }
 
-.rounded-rect {
-  border-radius: 25px;
-}
-.landing-caption {
-  margin-top: 25%;
-}
-
-
-a.explore_btn {
-  width: 232px;
-  height: 55px;
-  background: #dc3545;
-  color: #fff;
-  border-radius: 50px;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 25px;
-  display: inline-block;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+body {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	font: normal 18px/28px "Manrope";
+	color: #000;
+	//background: #fff
 }
 
-a.explore_btn:hover {
-  background: #fff;
-  color: #dc3545;
+a {
+	color: #6066e1
 }
 
-.caption-inner {
-  top: 55%;
+::selection {
+	background: #dc3545;
+	color: #fff
+}
+
+::-moz-selection {
+	background: #dc3545;
+	color: #fff
+}
+
+.white-bg {
+	background: #fff
+}
+
+.navbar {
+	font-family: 'Manrope';
+	font-weight: 700
+}
+
+.navbar-nav li a:hover {
+	color: #dc3545
+}
+
+.rounded {
+	border-radius: 10px !important;
+	-moz-border-radius: 10px !important;
+	-webkit-border-radius: 10px !important
+}
+
+@media only screen and (max-width:600px) {
+	body {
+		padding-top: 20px
+	}
+}
+
+p {
+	padding: 0;
+	margin: 0
+}
+
+a {
+	padding: 0;
+	margin: 0;
+	outline: 0
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0
+}
+
+label {
+	list-style: none;
+	padding: 0;
+	margin: 0
+}
+
+ul li {
+	padding: 0;
+	margin: 0
+}
+
+input[type=text]::-webkit-placeholder {
+	opacity: 1
+}
+
+input[type=text]::-moz-placeholder {
+	opacity: 1
+}
+
+input[type=password]::-webkit-placeholder {
+	opacity: 1
+}
+
+input[type=password]::-moz-placeholder {
+	opacity: 1
+}
+
+input[type=search]::-webkit-placeholder {
+	opacity: 1
+}
+
+input[type=search]::-moz-placeholder {
+	opacity: 1
+}
+
+input[type=email]::-webkit-placeholder {
+	opacity: 1
+}
+
+input[type=email]::-moz-placeholder {
+	opacity: 1
+}
+
+input[type=tel]::-webkit-placeholder {
+	opacity: 1
+}
+
+input[type=tel]::-moz-placeholder {
+	opacity: 1
+}
+
+a:hover {
+	outline: 0 !important;
+	text-decoration: none
+}
+
+a:active {
+	outline: 0 !important;
+	text-decoration: none
+}
+
+a {
+	text-decoration: none !important
+}
+
+a:focus,
+a:hover {
+	text-decoration: inherit !important
+}
+
+.container {
+	max-width: 1250px
+}
+
+.header_sec {
+	width: 100%;
+	padding: 4px 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9
+}
+
+.banner_sec {
+	width: 100%;
+	position: relative
+}
+
+.banner_box {
+	width: 100%;
+	position: relative;
+	//background: url(../images/banner.jpg) no-repeat 0 0;
+	background-size: cover;
+	height: 660px
+}
+
+.banner_innr {
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%)
+}
+
+.banner_details {
+	width: 100%;
+	position: relative
+}
+
+.banner_details b.ban_heading {
+	width: 100%;
+	display: inline-block;
+	font: normal 55px/56px "Manrope";
+  font-weight: 800;
+	color: #fff
+}
+
+.banner_details p {
+	font: normal 23px/31px "Manrope";
+  font-weight: 500;
+	color: #fff;
+	padding-top: 15px
+}
+
+.banner_details a.explore_btn {
+	width: 232px;
+	height: 55px;
+	background: #dc3545;
+	font: normal 16px/55px "Manrope";
+	color: #fff;
+	border-radius: 50px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 25px;
+	display: inline-block;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s
+}
+
+.banner_details a.explore_btn:hover {
+	background: #fff;
+	color: #dc3545
+}
+
+.banner_pic {
+	width: 100%;
+	text-align: center
+}
+
+.banner_pic img {
+	max-width: 100%
+}
+
+.banner_sec .row {
+	align-items: center
+}
+
+@-webkit-keyframes btm-arrow {
+	16.65% {
+		-webkit-transform: translateY(8px);
+		transform: translateY(8px)
+	}
+
+	33.3% {
+		-webkit-transform: translateY(-6px);
+		transform: translateY(-6px)
+	}
+
+	49.95% {
+		-webkit-transform: translateY(4px);
+		transform: translateY(4px)
+	}
+
+	66.6% {
+		-webkit-transform: translateY(-2px);
+		transform: translateY(-2px)
+	}
+
+	83.25% {
+		-webkit-transform: translateY(1px);
+		transform: translateY(1px)
+	}
+
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+
+@keyframes btm-arrow {
+	16.65% {
+		-webkit-transform: translateY(8px);
+		transform: translateY(8px)
+	}
+
+	33.3% {
+		-webkit-transform: translateY(-6px);
+		transform: translateY(-6px)
+	}
+
+	49.95% {
+		-webkit-transform: translateY(4px);
+		transform: translateY(4px)
+	}
+
+	66.6% {
+		-webkit-transform: translateY(-2px);
+		transform: translateY(-2px)
+	}
+
+	83.25% {
+		-webkit-transform: translateY(1px);
+		transform: translateY(1px)
+	}
+
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+}
+
+.search input[type=text]::placeholder {
+	color: #ccaacb
+}
+
+:focus {
+	outline: 0 !important
+}
+
+@media (min-width:1200px) and (max-width:1299px) {
+	.container {
+		max-width: 1170px
+	}
+
+	.banner_details b.ban_heading {
+		font-size: 45px;
+		line-height: 50px
+	}
+
+	.banner_details p {
+		font-size: 21px;
+		line-height: 30px
+	}
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+	.container {
+		max-width: 960px
+	}
+
+	.banner_details b.ban_heading {
+		font-size: 38px;
+		line-height: 46px
+	}
+
+	.banner_details p {
+		font-size: 18px;
+		line-height: 26px;
+		padding: 12px 0 0
+	}
+
+	.search {
+		width: 200px;
+		height: 42px;
+		left: 103px;
+		top: 5px
+	}
+
+	.banner_details a.explore_btn {
+		width: 210px;
+		height: 50px;
+		font-size: 15px;
+		line-height: 52px;
+		margin-top: 20px
+	}
+
+	.banner_box {
+		height: 580px
+	}
+
+	.search input[type=text] {
+		height: 40px;
+		line-height: 40px;
+		background-size: 20px
+	}
+}
+
+@media only screen and (max-width:991px) {
+	.container {
+		max-width: 720px
+	}
+
+	.banner_details b.ban_heading {
+		font-size: 28px;
+		line-height: 35px
+	}
+
+	.banner_details p {
+		font-size: 16px;
+		line-height: 22px;
+		padding: 8px 0 0
+	}
+
+	.search {
+		width: 200px;
+		height: 42px;
+		left: 103px;
+		top: 5px
+	}
+
+	.banner_details a.explore_btn {
+		width: 190px;
+		height: 45px;
+		font-size: 14px;
+		line-height: 45px;
+		margin-top: 15px
+	}
+
+	.banner_box {
+		height: 500px
+	}
+
+	.search input[type=text]::placeholder {
+		color: #ccaacb
+	}
+
+	.header_sec {
+		padding: 18px 0
+	}
+}
+
+@media only screen and (max-width:767px) {
+	.container {
+		max-width: 100%
+	}
+
+	.banner_innr {
+		width: 100%;
+		position: inherit;
+		left: inherit;
+		top: inherit;
+		transform: inherit;
+		padding: 130px 0 50px 0
+	}
+
+	.banner_box {
+		height: auto;
+		background-position: 30% center
+	}
+
+	.banner_pic {
+		margin-top: 35px
+	}
+
+	.banner_details a.explore_btn {
+		width: 190px;
+		height: 42px;
+		font-size: 14px;
+		line-height: 41px;
+		margin-top: 15px
+	}
+}
+
+@media only screen and (max-width:575px) {
+	.banner_details b.ban_heading {
+		font-size: 24px;
+		line-height: 31px
+	}
+}
+
+.text-secondary {
+	color: #666 !important
+}
+
+.text-333 {
+	color: #333
+}
+
+a.text-333:hover {
+	color: #000
+}
+
+.btn {
+	border-radius: 30px;
+	font: normal 16px/47px "Manrope";
+	padding: 1px 15px 0 15px
 }

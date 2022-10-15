@@ -13,6 +13,12 @@
   </head>
 
   <body>
+    <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <header class="main-header py-2">
       <div class="container">
         <div class="mt-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -65,12 +71,7 @@
     </header>
     -->
 
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+
       <%= yield %>
     </main>
   </body>

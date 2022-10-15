@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
-load_and_authorize_resource
   # GET /items or /items.json
   def index
-    @items = Item.all
-    @item = Item.new
+    
   end
 
   # GET /items/1 or /items/1.json
@@ -12,12 +10,12 @@ load_and_authorize_resource
 
   # GET /items/new
   def new
-    @item = Item.new
+   
   end
 
   # GET /items/1/edit
   def edit
-    @item = Item.find(params[:id])
+    
   end
 
   # POST /items or /items.json

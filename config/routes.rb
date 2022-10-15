@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :items
   resources :roles
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+
 
   devise_scope :user do  
    get '/users/sign_out' => 'devise/sessions#destroy'     

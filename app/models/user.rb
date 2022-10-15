@@ -15,6 +15,8 @@ class User < ApplicationRecord
                       if: :encrypted_password_changed?
   validates :birthday, presence: true
 
+  has_one_attached :avatar
+
   def set_default_role
     self.role ||= :user
   end

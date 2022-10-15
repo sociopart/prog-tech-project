@@ -1,5 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<%= image_tag(current_user.avatar, style:"width:150px; height: 150px; border-radius:100%") if current_user.avatar.attached? %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -19,6 +19,11 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">

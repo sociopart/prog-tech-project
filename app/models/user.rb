@@ -4,12 +4,9 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record? 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_one :userprofile
   has_many :items, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  validates_inclusion_of :gender, :in => [true, false]
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { within: 8..128 }, on: :create
   validates :password, presence: true,

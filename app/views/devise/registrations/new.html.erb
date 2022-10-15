@@ -22,7 +22,7 @@
 
                 <div class="form-outline mb-4">
                   <%= f.label :birthday, class: "form-label" %>
-                  <%= f.date_field :birthday, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "email" %>
+                  <%= f.date_field :birthday, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "#{Time.now}" %>
                 </div>
 
                 <table>

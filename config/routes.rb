@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :items
-  resources :roles
+  resources :posts
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
         :sign_up => "register" 
       }
 
-  get '@:user_id', to: 'users#profile', as: 'user'
+  get '@:user_tag', to: 'users#profile', as: 'user'
 
   devise_scope :user do  
    get '/logout' => 'devise/sessions#destroy'     

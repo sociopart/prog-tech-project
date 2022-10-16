@@ -10,6 +10,10 @@
     <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "common", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "landing", "data-turbo-track": "reload" %>
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <%= javascript_importmap_tags %>
+    
+
   </head>
 
   <body>
@@ -48,28 +52,6 @@
         </div>
       </div>
     </header>
-    <!--
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          </ul>
-          <p class="navbar-text float-right">
-            <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.name %></strong>.
-              <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Выход", destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to "Регистрация", new_user_registration_path, :class => 'navbar-link'  %> |
-              <%= link_to "Вход", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %>
-            |
-            <%= link_to 'RuFans', root_path %>
-            </p>
-        </nav>
-      </div>
-    </header>
-    -->
 
 
       <%= yield %>

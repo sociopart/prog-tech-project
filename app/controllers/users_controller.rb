@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_tag])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :user_id, :images)
   end
 end

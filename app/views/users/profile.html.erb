@@ -1,0 +1,4 @@
+<%= image_tag(current_user.avatar, style:"width:150px; height: 150px; border-radius:100%") if @user.avatar.attached? %>
+<%= @user.nickname %><br/>
+<%= '@' + @user.user_tag %><br/>
+<%= @user.name %>

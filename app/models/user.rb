@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates_inclusion_of :gender, :in => [true, false]
   enum role: [:user, :seller, :admin]
   after_initialize :set_default_role, :if => :new_record? 
+  after_create :set_default_tag, :if => :persisted? 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,9 +16,14 @@ class User < ApplicationRecord
                       if: :encrypted_password_changed?
   validates :birthday, presence: true
 
+  has_many :posts
   has_one_attached :avatar
-
+  private
   def set_default_role
     self.role ||= :user
+  end
+
+  def set_default_tag
+    self.update_column(:user_tag, "#{self.id}")
   end
 end

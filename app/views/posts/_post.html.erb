@@ -2,7 +2,7 @@
   <h2><%= post.title %></h2>
   <h4>posted by <%= link_to post.user.name, user_path(post.user) %></h4>
   <% post.images.each do |image| %>
-    <%= image_tag(image, style:"width:300px; height: auto")%>
+    <%= image_tag(image, style:"width:300px; height: auto")%><br/>
   <% end %>
   <div>
     <%= post.body %>

@@ -8,15 +8,17 @@ class UsersController < ApplicationController
     # @posts.each do |post|
     #   @total_views += post.views
     # end
+    @post = Post.new
+    @posts = Post.where("user_id = #{@user.id}")
   end
 
   private
 
   def set_user
-    @user = User.find(params[:user_tag])
+    @user = User.find_by(user_tag: params[:user_tag])
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :images)
+    params.require(:post).permit(:title, :body, :user_id, :images, :user_tag)
   end
 end

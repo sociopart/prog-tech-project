@@ -1,4 +1,17 @@
-<%= image_tag(current_user.avatar, style:"width:150px; height: 150px; border-radius:100%") if @user.avatar.attached? %>
+<%= image_tag(@user.avatar, style:"width:150px; height: 150px; border-radius:100%") if @user.avatar.attached? %>
 <%= @user.nickname %><br/>
 <%= '@' + @user.user_tag %><br/>
 <%= @user.name %>
+<%= render "posts/form", post: @post%>
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1>Posts</h1>
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <p>
+        <%= link_to "Show this post", post %>
+      </p>
+    <% end %>
+  </div>
+</div>

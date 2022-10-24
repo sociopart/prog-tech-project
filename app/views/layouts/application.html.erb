@@ -30,18 +30,19 @@
             <img src="/assets/logo.svg">
           </a>
 
-          <form class="mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark search-rectangle" placeholder="Найти талантов..." aria-label="Search">
-          </form>
+          <div class="mb-3 mb-lg-0 me-lg-3">
+            <%= render 'search/form' %>
+          </div>
 
           <ul class="nav cme-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 text-secondary">Сообщество</a></li>
             <li><a href="#" class="nav-link px-2 text-white">Таланты</a></li>
           </ul>
 
+
           <div class="text-end">
             <% if user_signed_in? %>
-            
+              <%= link_to 'Профиль', user_path(current_user.user_tag), :class => 'btn btn-outline-light me-2 rounded-rect' %> 
               <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'btn btn-outline-light me-2 rounded-rect' %> 
               <%= link_to "Выход", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-light me-2 rounded-rect btn-danger' %> 
             <% else %>

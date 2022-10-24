@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
   <h2><%= post.title %></h2>
-  <h4>posted by <%= link_to post.user.name, user_path(post.user) %></h4>
+  <h4>posted by <%= link_to post.user.name, user_path(post.user.user_tag) %></h4>
   <% post.images.each do |image| %>
     <%= image_tag(image, style:"width:300px; height: auto")%><br/>
   <% end %>

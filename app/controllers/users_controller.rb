@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @posts = Post.where("user_id = #{@user.id}")
   end
 
+  def talantes
+    @talantes = User.where(role:  "seller")
+  end
+
   private
 
   def set_user

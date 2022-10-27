@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get '@:user_tag', to: 'users#profile', as: 'user'
 
+  get 'talantes', to: 'users#talantes'
   devise_scope :user do  
    get '/logout' => 'devise/sessions#destroy'     
   end

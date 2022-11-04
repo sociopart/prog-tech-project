@@ -1,24 +1,20 @@
-# README
+# RuFans: SSU development project.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
+1. Install important dependencies:
+    - Linux (Debian-based distros):
+        - `sudo apt install git make`
+    - MacOS
+        - `brew install git make`
+1. Clone this repository.
+1. Enter the directory of cloned repository.
+1. `make setup`
+1. `make preinstall`
 
-Things you may want to cover:
+## Running the server
+- Open a console and do `make install`
+- Open another console and do `make runserver`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- NOTE #1: `make install` is doing only a migration and then starts the server.
+  - If you want to drop DB and rebuild the dependencies, use `make preinstall` again.
+- NOTE #2: Use `make install` console to do `rake` \ `rails` - specific stuff.

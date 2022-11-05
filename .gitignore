@@ -10,3 +10,8 @@
 # Misc
 .DS_Store
 .idea
+
+# Logs
+rufans/log/
+rufans/storage/
+rufans/tmp/

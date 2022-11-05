@@ -1,0 +1,54 @@
+
+.h7 {
+  font-size: 0.8rem;
+}
+
+.gedf-wrapper {
+  margin-top: 0.97rem;
+  border-radius: 15px;
+}
+
+@media (min-width: 992px) {
+  .gedf-main {
+      padding-left: 4rem;
+      padding-right: 4rem;
+  }
+  .gedf-card {
+      margin-bottom: 2.77rem;
+  }
+}
+
+/**Reset Bootstrap*/
+.dropdown-toggle::after {
+  content: none;
+  display: none;
+}
+
+.fill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  border-radius: 13px 13px 0 0;
+}
+.fill img {
+  background-size: cover;
+}
+.profile-card {
+  border: 2px solid #60435F;
+  border-radius: 15px;
+}
+
+.profile-desc {
+  padding: 0;
+  position: relative;
+  top: -32px;
+  margin-bottom: -32px;
+  border-radius: 15px 15px 0 0;
+}
+
+#rectangle{
+  width:100%;
+  height: 300px;
+  background:#60435F;
+}

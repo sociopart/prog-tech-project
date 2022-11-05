@@ -110,15 +110,17 @@ html, body {
   width: 333px;
   //height: 40px;
   margin-left: 20px;
-  background: #FBD8FF;
+  background: #f8f8f8;
   border: 2px solid #60435F;
   border-radius: 25px;
 }
 
 .main-header {
-  background: linear-gradient(180deg, #F08EFC 0%, rgba(240, 142, 252, 0) 100%);
+  //background: linear-gradient(180deg, #F08EFC 0%, rgba(240, 142, 252, 0) 100%);
+  background: #CBE8EF;
   width: 100%;
-  height: 60px;
+  min-width: 100%;
+  //height: 60px;
   left: 0px;
   top: 0px;
 }
@@ -184,7 +186,8 @@ a {
 }
 
 html, body {
-  background: linear-gradient(116.82deg, #F08EFC 0%, #EE5166 100%) no-repeat center center fixed; 
+  //background: linear-gradient(116.82deg, #F08EFC 0%, #EE5166 100%) no-repeat center center fixed; 
+  background: #f8f8f8 no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -197,7 +200,7 @@ input#search-text {
   margin-top: 2%;
   width: 90%;
   border: none;
-  background: #FBD8FF;
+  background: #f8f8f8;
 }
 
 .rounded-rect {

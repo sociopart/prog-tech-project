@@ -2,16 +2,90 @@
 <%= @user.nickname %><br/>
 <%= '@' + @user.user_tag %><br/>
 <%= @user.name %>
-<%= render "posts/form", post: @post%>
 <p style="color: green"><%= notice %></p>
-<div class="container">
-  <h1>Posts</h1>
-  <div id="posts">
-    <% @posts.each do |post| %>
-      <%= render post %>
-      <p>
-        <%= link_to "Show this post", post %>
-      </p>
-    <% end %>
+<div class="container gedf-wrapper">
+  <div class="row py-2">
+    <!-- Left dock start -->
+    <div class="col-md-2">
+      <div class="container">
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Главная</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Уведомления</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Сообщения</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Избранное</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Подписки</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Добавить карту</a>
+        </div>
+        <div class="row py-2">
+          <i class="icon"></i>
+          <a>Профиль</a>
+        </div>
+        <div class="row py-3">
+          <i class="icon"></i>
+          <a>Новая запись</a>
+        </div>
+      </div>
+    </div>
+    <!-- Left dock end -->
+    <!-- Middle dock start -->
+    <div class="col-md-6">
+      <div class="container">
+        <div class="card gedf-card mb-4 profile-card" id="">
+          <div class="fill">
+            <img src="https://picsum.photos/700/250" alt="">
+          </div>
+          <div class="card-body profile-desc fill">
+            <div id="rectangle">
+                        Авхахвахвыахыав
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <%= render "posts/form", post: @post %>
+        <div id="posts">
+          <% @posts.each do |post| %>
+          <%= render post %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Middle dock end -->
+    <div class="col-md-4">
+      <div class="card gedf-card">
+        <div class="card-header">
+          <h5 class="card-title">Рекомендации</h5>
+        </div>
+        <div class="card-body">
+          <div class="card gedf-card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

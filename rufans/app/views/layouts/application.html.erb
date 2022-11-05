@@ -25,21 +25,25 @@
     <% end %>
     <header class="main-header py-2">
       <div class="container">
-        <div class="mt-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <img src="/assets/logo.svg">
-          </a>
-
-          <div class="mb-3 mb-lg-0 me-lg-3">
-            <%= render 'search/form' %>
+        <div class="mt-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start row">
+          <div class="col-2">
+            <a href="/" class="col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img src="/assets/logo.svg">
+            </a>
           </div>
-
-          <ul class="nav cme-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-secondary">Сообщество</a></li>
-            <%= link_to 'Таланты', talantes_path, :class => 'nav-link px-2 text-white' %> 
-          </ul>
-
-
+          
+          <div class="col-7">
+            <div class="mb-3 mb-lg-0 me-lg-3">
+              <%= render 'search/form' %>
+            </div>
+          </div>
+          <div class="col-3">
+            <ul class="nav cme-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 text-secondary">Сообщество</a></li>
+              <%= link_to 'Таланты', talantes_path, :class => 'nav-link px-2 text-white' %> 
+            </ul>
+          </div>
+          <!--
           <div class="text-end">
             <% if user_signed_in? %>
               <%= link_to 'Профиль', user_path(current_user.user_tag), :class => 'btn btn-outline-light me-2 rounded-rect' %> 
@@ -50,6 +54,7 @@
               <%= link_to "Вход", new_user_session_path, :class => 'btn btn-outline-light me-2 rounded-rect'  %>
             <% end %>
           </div>
+          -->
         </div>
       </div>
     </header>

@@ -1,7 +1,3 @@
-<%= image_tag(@user.avatar, style:"width:150px; height: 150px; border-radius:100%") if @user.avatar.attached? %>
-<%= @user.nickname %><br/>
-<%= '@' + @user.user_tag %><br/>
-<%= @user.name %>
 <p style="color: green"><%= notice %></p>
 <div class="container gedf-wrapper">
   <div class="row py-2">
@@ -10,6 +6,7 @@
       <div class="container">
         <div class="row py-2">
           <i class="icon"></i>
+          <i data-feather="circle"></i>
           <a>Главная</a>
         </div>
         <div class="row py-2">
@@ -50,9 +47,41 @@
           <div class="fill">
             <img src="https://picsum.photos/700/250" alt="">
           </div>
-          <div class="card-body profile-desc fill">
-            <div id="rectangle">
-                        Авхахвахвыахыав
+          <div class="profile-avatar">
+            <%= image_tag(@user.avatar) if @user.avatar.attached? %>
+          </div>
+          <div class="card-body profile-desc fill" id="">
+            <button type="submit" class="btn float-end profile-edit-btn">Редактировать профиль</button>
+            <div class="profile-caption">
+              <h3><%= @user.name %></h3>
+              <h4><%= @user.nickname %></h4>
+              <h5>Я бы купил большой пенис</h5>
+              
+            </div>
+            <hr/>
+            <div class="profile-stats">
+              <div class="row">
+                <div class="col">
+                  <h4>51323</h4>
+                  <h5>Подписчиков</h5>
+                </div>
+                <div class="col">
+                  <h4>124</h4>
+                  <h5>Фанатов</h5>
+                </div>
+                <div class="col">
+                  <h4>430</h4>
+                  <h5>Записей</h5>
+                </div>
+                <div class="col">
+                  <h4>5</h4>
+                  <h5>Товаров</h5>
+                </div>
+                <div class="col">
+                  <h4>125</h4>
+                  <h5>Подписок</h5>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -89,3 +118,6 @@
     </div>
   </div>
 </div>
+<script>
+      feather.replace()
+    </script>

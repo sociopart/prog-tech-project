@@ -16,6 +16,20 @@ class User < ApplicationRecord
                       if: :encrypted_password_changed?
   validates :birthday, presence: true
 
+  has_many :followed_users,
+           foreign_key: :follower_id,
+           class_name: 'Relationship',
+           dependent: :destroy
+
+  has_many :followees, through: :followed_users, dependent: :destroy
+  
+  has_many :following_users,
+  foreign_key: :followee_id,
+  class_name: 'Relationship',
+  dependent: :destroy
+
+  has_many :followers, through: :following_users, dependent: :destroy
+
   has_many :posts
   has_one_attached :avatar
   private

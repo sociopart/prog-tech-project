@@ -14,12 +14,15 @@ Rails.application.routes.draw do
       }
 
   get '@:user_tag', to: 'users#profile', as: 'user'
-
+  get 'posts' => 'posts#index', :as => 'user_root'
   get 'talantes', to: 'users#talantes'
   devise_scope :user do  
    get '/logout' => 'devise/sessions#destroy'     
   end
   
+  post 'profile/follow', to: 'users#follow'
+  delete 'profile/unfollow', to: 'users#unfollow'  
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "main#index"
 

@@ -10,7 +10,7 @@
           <a>Главная</a>
         </div>
         <div class="row py-2">
-          <i class="icon"></i>
+          <i data-feather="star"></i>
           <a>Уведомления</a>
         </div>
         <div class="row py-2">
@@ -51,7 +51,12 @@
             <%= image_tag(@user.avatar) if @user.avatar.attached? %>
           </div>
           <div class="card-body profile-desc fill" id="">
-            <button type="submit" class="btn float-end profile-edit-btn">Редактировать профиль</button>
+            <% if @user == current_user %>
+                <%= link_to "Редактировать профиль", edit_user_registration_path, class: "btn float-end profile-edit-btn" %>
+            <% elsif current_user %>
+                <%= render 'users/follow_button', user: @user %>
+            <% end %>
+            
             <div class="profile-caption">
               <h3><%= @user.name %></h3>
               <h4><%= @user.nickname %></h4>
@@ -62,7 +67,7 @@
             <div class="profile-stats">
               <div class="row">
                 <div class="col">
-                  <h4>51323</h4>
+                  <h4><%= render 'users/follower_count', user: @user %></h4>
                   <h5>Подписчиков</h5>
                 </div>
                 <div class="col">
@@ -119,5 +124,5 @@
   </div>
 </div>
 <script>
-      feather.replace()
-    </script>
+  feather.replace()
+</script>

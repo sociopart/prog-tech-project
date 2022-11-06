@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "#{@user.id}-follower-count" do %>
+    <div>
+        <%= user.followers.count %>
+    </div>
+<% end %>

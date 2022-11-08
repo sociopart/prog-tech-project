@@ -1,4 +1,56 @@
+:root {
+  --site-accent-color: #60435F;
+  --site-bg-color: #F8F9FA;
+  --basic-element-border: 15px;
+  --text-muted : black;
+  --text-size-medium: 16px;
+  --text-weight-medium: 500;
+}
 
+.text-main-accent {
+  color: var(--site-accent-color);
+}
+
+.text-medium {
+  font-style: normal;
+  font-weight: var(--text-weight-medium);
+  font-size: var(--text-size-medium);
+}
+
+.btn-main {
+  --bs-btn-color: var(--site-bg-color);
+  --bs-btn-bg: var(--site-accent-color);
+  --bs-btn-border-color: var(--site-accent-color);
+  --bs-btn-hover-color: var(--site-accent-color);
+  --bs-btn-hover-bg: var(--site-bg-color);
+  --bs-btn-hover-border-color: var(--site-accent-color);
+  --bs-btn-focus-shadow-rgb: 248, 249, 250;
+  --bs-btn-active-color: var(--site-accent-color);
+  --bs-btn-active-bg: var(--site-bg-color);
+  --bs-btn-active-border-color: var(--site-bg-color);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--site-bg-color);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--site-bg-color);
+  --bs-gradient: none;
+}
+.btn-outline-main {
+  --bs-btn-color: var(--site-accent-color);
+  --bs-btn-bg: var(--site-bg-color);
+  --bs-btn-border-color: var(--site-accent-color);
+  --bs-btn-hover-color: var(--site-bg-color);
+  --bs-btn-hover-bg: var(--site-accent-color);
+  --bs-btn-hover-border-color: var(--site-accent-color);
+  --bs-btn-focus-shadow-rgb: 248, 249, 250;
+  --bs-btn-active-color: var(--site-accent-color);
+  --bs-btn-active-bg: var(--site-bg-color);
+  --bs-btn-active-border-color: var(--site-bg-color);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--site-bg-color);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--site-bg-color);
+  --bs-gradient: none;
+}
 .h7 {
   font-size: 0.8rem;
 }
@@ -10,14 +62,19 @@
 
 @media (min-width: 992px) {
   .gedf-main {
-      padding-left: 4rem;
-      padding-right: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
   .gedf-card {
-      margin-bottom: 2.77rem;
+    margin-bottom: 2.77rem;
   }
 }
 
+.post-card-header {
+  //color: var(--site-bg-color);
+  background-color: var(--site-bg-color);
+  border-bottom: 0px;
+}
 /**Reset Bootstrap*/
 .dropdown-toggle::after {
   content: none;
@@ -30,7 +87,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  //border: 2px solid #60435F;
+  //border: 2px solid var(--site-accent-color);
   //border-inline: 2px solid;
 }
 
@@ -48,7 +105,7 @@ img {
   overflow: hidden;
   border-radius: 15px 15px 0 0;
   margin-top: -30px;
-  background:#60435F;
+  background:var(--site-accent-color);
 }
 
 .profile-avatar {
@@ -120,5 +177,5 @@ img {
 #rectangle{
   width: 100%;
   height: 300px;
-  background:#60435F;
+  background:var(--site-accent-color);
 }

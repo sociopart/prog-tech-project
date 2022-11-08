@@ -26,35 +26,38 @@
     <header class="main-header py-2">
       <div class="container">
         <div class="mt-2 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start row">
-          <div class="col-2">
-            <a href="/" class="col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <img src="/assets/logo.svg">
-            </a>
+          <div class="col-md-2">
+            <% if user_signed_in? %>
+              <%= link_to posts_path, :class => 'col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none' do %>
+                <img src="/assets/logo.svg">
+              <% end %>
+            <% else %>
+              <%= link_to user_registration_path, :class => 'col-lg-3 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none' do %>
+                <img src="/assets/logo.svg">
+              <% end %>
+            <% end %>
           </div>
           
-          <div class="col-7">
+          <div class="col-md-4">
             <div class="mb-3 mb-lg-0 me-lg-3">
               <%= render 'search/form' %>
             </div>
           </div>
-          <div class="col-3">
-            <ul class="nav cme-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 text-secondary">Сообщество</a></li>
-              <%= link_to 'Таланты', talantes_path, :class => 'nav-link px-2 text-white' %> 
+          <div class="col-md-6">
+            <ul class="nav cms-lg-auto mb-2 d-flex align-items-center justify-content-center mb-md-0">
+              <%= link_to 'Cообщество', talantes_path, :class => 'nav-link px-2 text-main-accent' %> 
+              <%= link_to 'Таланты', talantes_path, :class => 'nav-link px-2  text-main-accent' %> 
+              <% if user_signed_in? %>
+                <%= link_to 'Профиль', user_path(current_user.user_tag), :class => 'btn btn-outline-main rounded-rect me-2' %> 
+                <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'btn btn-outline-main rounded-rect me-2' %> 
+                <%= link_to "Выход", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-main rounded-rect me-2' %> 
+              <% else %>
+                <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-outline-main rounded-rect me-2'  %> 
+                <%= link_to "Вход", new_user_session_path, :class => 'btn btn-outline-main me-2 rounded-rect me-2'  %>
+              <% end %>
             </ul>
           </div>
-          <!--
-          <div class="text-end">
-            <% if user_signed_in? %>
-              <%= link_to 'Профиль', user_path(current_user.user_tag), :class => 'btn btn-outline-light me-2 rounded-rect' %> 
-              <%= link_to 'Изменить Профиль', edit_user_registration_path, :class => 'btn btn-outline-light me-2 rounded-rect' %> 
-              <%= link_to "Выход", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-light me-2 rounded-rect btn-danger' %> 
-            <% else %>
-              <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-outline-light me-2 rounded-rect btn-danger'  %> 
-              <%= link_to "Вход", new_user_session_path, :class => 'btn btn-outline-light me-2 rounded-rect'  %>
-            <% end %>
-          </div>
-          -->
+         
         </div>
       </div>
     </header>

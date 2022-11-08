@@ -117,7 +117,7 @@ html, body {
 
 .main-header {
   //background: linear-gradient(180deg, #F08EFC 0%, rgba(240, 142, 252, 0) 100%);
-  background: #CBE8EF;
+  background: #f8f9fa;
   width: 100%;
   min-width: 100%;
   //height: 60px;
@@ -159,9 +159,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
+
 a {
   color: #6066e1;
 }
+
 ::selection {
   background: #dc3545; /* WebKit/Blink Browsers */
   color: white;

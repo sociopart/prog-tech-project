@@ -18,7 +18,8 @@ endif
 	sudo chmod +x /usr/local/bin/docker-compose
 
 preinstall:
-	docker-compose build
+	docker-compose create 
+	docker-compose build 
 	docker-compose start
 	docker-compose exec web rake db:drop db:create db:migrate
 	docker-compose stop

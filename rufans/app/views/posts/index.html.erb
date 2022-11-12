@@ -42,11 +42,11 @@
     <!-- Middle dock start -->
     <div class="col-md-6">
       <div class="container">
-        <%= render "posts/form", post: @post %>
-        <div id="posts">
-          <% @posts.each do |post| %>
-          <%= render post %>
-          <% end %>
+        <div id="new-post">
+          <%= render "posts/form", post: @post %>
+        </div>
+        <div id="posts-block">
+          <%= render @posts %>
         </div>
       </div>
     </div>

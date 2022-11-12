@@ -5,6 +5,8 @@
   --text-muted : black;
   --text-size-medium: 16px;
   --text-weight-medium: 500;
+  --text-weight-big: 600;
+  --text-size-big: 32px;
 }
 
 .text-main-accent {
@@ -15,6 +17,20 @@
   font-style: normal;
   font-weight: var(--text-weight-medium);
   font-size: var(--text-size-medium);
+}
+.text-big {
+  font-style: normal;
+  font-weight: var(--text-weight-big);
+  font-size: var(--text-size-big);
+}
+.btn-big {
+  align-items: center;
+  width: 50%;
+  font-weight: 700;
+  text-align: center;
+}
+.rounded-corners {
+  border-radius: var(--basic-element-border);
 }
 
 .btn-main {
@@ -122,6 +138,11 @@ img {
   height: 125px;
   border-radius: 50%;
   border: 2px solid #FDF7FA;
+}
+
+.post-avatar img {
+  width: 65px;
+  height: 65px;
 }
 
 .profile-edit-btn {

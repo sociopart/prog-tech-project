@@ -2,8 +2,12 @@
   <div class="card-header post-card-header">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex justify-content-between align-items-center">
-        <div class="mr-2 mt-2">
-          <img class="rounded-circle" src="https://picsum.photos/50/50" alt="" width="45">
+        <div class="mr-2 mt-2 post-avatar">
+          <% if post.user.avatar.attached? %>
+            <%= image_tag(post.user.avatar, class: 'rounded-circle', alt: '') %>
+          <% else %>
+            <img class="rounded-circle" src="https://picsum.photos/50/50" alt="" width="45">
+          <% end %>
         </div>
         <div class="mx-3">
           <div class="h7"><%= link_to post.user.name, user_path(post.user.user_tag), class: 'text-medium text-main-accent'%> </div>

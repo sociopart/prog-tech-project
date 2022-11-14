@@ -2,43 +2,7 @@
 <div class="container gedf-wrapper">
   <div class="row py-2">
     <!-- Left dock start -->
-    <div class="col-md-2">
-      <div class="container">
-        <div class="row py-2">
-          <i class="fe fe-home"></i>
-          <a class="text-medium text-main-accent">Главная</a>
-          
-        </div>
-        <div class="row py-2">
-          <i class="fe fe-bell"></i>
-          <a>Уведомления</a>
-        </div>
-        <div class="row py-2">
-          
-          <a>Сообщения</a>
-        </div>
-        <div class="row py-2">
-          <i class="fe fe-star-o"></i>
-          <a>Избранное</a>
-        </div>
-        <div class="row py-2">
-          <i class="icon"></i>
-          <a>Подписки</a>
-        </div>
-        <div class="row py-2">
-          <i class="icon"></i>
-          <a>Добавить карту</a>
-        </div>
-        <div class="row py-2">
-          <i class="icon"></i>
-          <a>Профиль</a>
-        </div>
-        <div class="row py-3">
-          <i class="icon"></i>
-          <a>Новая запись</a>
-        </div>
-      </div>
-    </div>
+    <%=render 'navigation/left_dock'%>
     <!-- Left dock end -->
     <!-- Middle dock start -->
     <div class="col-md-6">
@@ -92,11 +56,11 @@
         </div>
       </div>
       <div class="container">
-        <%= render "posts/form", post: @post %>
-        <div id="posts">
-          <% @posts.each do |post| %>
-          <%= render post %>
-          <% end %>
+        <div id="new-post">
+          <%= render "posts/form", post: @post %>
+        </div>
+        <div id="posts-block">
+          <%= render @posts %>
         </div>
       </div>
     </div>

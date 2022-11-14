@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
     @post = Post.new
   end
 
@@ -17,6 +17,13 @@ class PostsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.turbo_stream do 
+        render turbo_stream: [ turbo_stream.update(@post,
+                                                 partial: "posts/form",
+                                                 locals: {post: @post}) ]
+      end
+    end 
   end
 
   def create
@@ -45,9 +52,19 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        format.turbo_stream do 
+          render turbo_stream: [ turbo_stream.update(@post,
+                                                   partial: "posts/post",
+                                                   locals: {post: @post}) ]
+        end
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
+        format.turbo_stream do 
+          render turbo_stream: [ turbo_stream.update(@post,
+                                                   partial: "posts/form",
+                                                   locals: {post: @post}) ]
+        end
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -57,6 +74,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end

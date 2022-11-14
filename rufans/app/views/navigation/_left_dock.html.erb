@@ -1,0 +1,37 @@
+<div class="col-md-2">
+  <div class="container">
+    <div class="row py-2">
+      <i class="fe fe-home"></i>
+      <%= link_to "Главная", posts_path %>
+    </div>
+    <div class="row py-2">
+      <i class="fe fe-bell"></i>
+      <i data-feather="circle"></i>
+      <a>Уведомления</a>
+    </div>
+    <div class="row py-2">
+      <i class="icon"></i>
+      <a>Сообщения</a>
+    </div>
+    <div class="row py-2">
+      <i class="fe fe-star-o"></i>
+      <a>Избранное</a>
+    </div>
+    <div class="row py-2">
+      <i class="icon"></i>
+      <a>Подписки</a>
+    </div>
+    <div class="row py-2">
+      <i class="icon"></i>
+      <a>Добавить карту</a>
+    </div>
+    <div class="row py-2">
+      <i class="icon"></i>
+      <%= link_to "Мой профиль", user_path(current_user.user_tag) %>
+    </div>
+    <div class="row py-3">
+      <i class="icon"></i>
+      <a>Новая запись</a>
+    </div>
+  </div>
+</div>

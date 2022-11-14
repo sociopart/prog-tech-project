@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     #   @total_views += post.views
     # end
     @post = Post.new
-    @posts = Post.where("user_id = #{@user.id}")
+    @posts = Post.where("user_id = #{@user.id}").order(created_at: :desc)
   end
 
   def talantes

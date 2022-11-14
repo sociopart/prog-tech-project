@@ -12,6 +12,7 @@
 .idea
 
 # Logs
-rufans/log/
-rufans/storage/
-rufans/tmp/
+rufans/.gitignore
+log/
+storage/
+tmp/

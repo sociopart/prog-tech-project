@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'search', to: 'search#index'
-  resources :posts
+  resources :posts do
+    member do
+      post :edit
+    end
+  end
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

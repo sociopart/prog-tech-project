@@ -1,37 +1,77 @@
-version: "3.8"
+# usamos la version 2 para el archivo docker-compose
+version: "2"
+
+# aqui es donde se configura cada contenedor
 services:
-  # Database: PostgreSQL
-  database:
-    image: postgres
-    env_file:
-      - ./.secrets/secrets.env
-    volumes:
-      - ./.docker/volumes/database:/var/lib/postgresql/data
-  # Cache: Redis
-  cache:
-    image: redis:7.0.5-alpine
-    restart: always
-    ports:
-      - '6379:6379'
-    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-    volumes: 
-      - cache:/data
-  # Main project container
-  web:
+  # contenedor app rails
+  app:
+    # build especifica donde esta el dockerfile para construir la app en nuestro caso
+    # esta en la misma ubicacion que el archivo docker-compose.yml
     build:
       context: .
-      dockerfile: ./.docker/rufans/Dockerfile
-    env_file:
-      - ./.secrets/secrets.env
-    volumes:
-      - ./rufans:/rufans
-    ports:
-      - "3000:3000"
+      dockerfile: ./.docker/Dockerfile
+    environment:
+      - RAILS_ENV=production
+    # cuando se ejecuta el contenedor inmediatamente llama al script startup.sh
+    command: [ "/opt/startup.sh" ]
+    expose:
+      - "3000"
+    # docker-compose busca las variables de entorno para este contenedor en el archivo .env
+    env_file: .secrets/secrets.env
+    # especifica el orden de ejecucion de los contenedores en este caso app depende de contenedor db y redis
+    # por lo tanto no se va a ejecutar el contenedor app hasta que db y redis se hayan ejecutado
     depends_on:
-      - database
-      - cache
+      - db
+      - redis
+
+  # contenedor db postgres
+  db:
+    # especifica la imagen que voy a usar para hacer build del contenedor
+    image: postgres:9.6
+    env_file: .secrets/secrets.env
+    # usamos el contenedor de datos con nombre postgres creado al final para persistir los datos de la db que se genera en el contenedor
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  # contenedor redis
+  redis:
+    # construye el contenedor a partir de la imagen redis
+    image: redis
+    # inicia el servidor redis
+    command: redis-server
+    # puerto por defecto donde escucha el servidor redis
+    ports:
+      - "6379"
+    # usamos el contenedor de datos con nombre redis creado al final para persistir los datos de la db de redis
+    volumes:
+      - redis:/var/lib/redis/data
+
+  # contenedor sidekiq
+  sidekiq:
+    # usamos el mismo dockerfile para construir el sidekiq ya que usa los mismos archivos
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
+    depends_on:
+      - redis
+    # ejecuta el archivo de configuracion sidekiq.yml
+    command: bundle exec rails g sidekiq:worker Hard && bundle exec sidekiq -C rufans/config/sidekiq.yml
+    env_file: .secrets/secrets.env
+
+  # contenedor nginx
+  nginx:
+    # esta vez le indicamos donde esta el archivo dockerfile para este contenedor
+    build:
+      context: .
+      dockerfile: .docker/nginx-Dockerfile
+    depends_on:
+      - app
+    # mapeamos el puerto 80 del contenedor al puerto 80 del host
+    ports:
+      - "8888:80"
+
+
+# creamos un contenedor de datos para postgres y redis para persistir la data
 volumes:
-  #db:
-  #  driver: local
-  cache:
-    driver: local
+  postgres:
+  redis:

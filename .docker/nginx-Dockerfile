@@ -1,0 +1,23 @@
+# config/nginx-Dockerfile
+
+# usamos la imagen nginx
+FROM nginx
+
+# configuramos la variable de entorno
+ENV RAILS_ROOT /rails_app
+
+# configuramos el directorio raiz
+WORKDIR $RAILS_ROOT
+
+# crea un directorio para los logs de nginx
+RUN mkdir log
+
+# copia los archivos estaticos de rails en la carpeta public a nuestro contenedor nginx ya que nginx puede servirlos
+# mas rapidamente que nuestra app
+COPY public public/
+
+# copia el arvhivo de configuracion desde local al contenedor
+COPY .docker/configs/nginx.conf /etc/nginx/nginx.conf
+
+# ejecuta este comando sobre el contenedor nginx despues de haber sido creado 
+CMD [ "/usr/sbin/nginx" ]

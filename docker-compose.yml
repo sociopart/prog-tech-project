@@ -7,15 +7,30 @@ services:
       - ./.secrets/secrets.env
     volumes:
       - ./.docker/volumes/database:/var/lib/postgresql/data
-  # Cache: Redis
-  cache:
+  # redis: Redis
+  redis:
     image: redis:7.0.5-alpine
     restart: always
     ports:
       - '6379:6379'
-    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    command: redis-server
     volumes: 
-      - cache:/data
+      - redis:/data
+  # Sidekiq
+  sidekiq:
+    depends_on:
+      - 'database'
+      - 'redis'
+    build:
+      context: .
+      dockerfile: ./.docker/rufans/Dockerfile
+    env_file:
+      - ./.secrets/secrets.env
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - ./rufans:/rufans
+      - '/rufans/tmp' # don't mount tmp directory
+
   # Main project container
   web:
     build:
@@ -29,9 +44,9 @@ services:
       - "3000:3000"
     depends_on:
       - database
-      - cache
+      - redis
 volumes:
   #db:
   #  driver: local
-  cache:
+  redis:
     driver: local

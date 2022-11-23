@@ -1,4 +1,4 @@
-<%=turbo_stream_from "posts"%>
+
 <div class="container gedf-wrapper">
   <div class="row py-2">
     <!-- Left dock start -->
@@ -10,6 +10,7 @@
         <div id="new-post">
           <%= render "posts/form", post: @post %>
         </div>
+        <%=turbo_stream_from "posts_list"%>
         <div id="posts-block">
           <%= render @posts %>
         </div>

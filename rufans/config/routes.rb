@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     member do
       post :edit
     end
+    collection do
+      post 'clearance'
+    end
   end
 
   devise_for :users, controllers: {

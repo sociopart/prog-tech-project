@@ -6,13 +6,16 @@
     <!-- Left dock end -->
     <!-- Middle dock start -->
     <div class="col-md-6">
+      <%= secret_clearance ? "Secret" : "None" %>
+      <%= link_to "Change clearance", clearance_posts_path, method: :post %>
       <div class="container">
         <div id="new-post">
           <%= render "posts/form", post: @post %>
         </div>
-        <%=turbo_stream_from "posts_list"%>
+        <%=turbo_stream_from :posts%>
+        <%=turbo_stream_from [current_user, :posts]%>
         <div id="posts-block">
-          <%= render @posts %>
+          <%= render partial: 'posts/post', collection: @posts, locals: { user: current_user }%>
         </div>
       </div>
     </div>

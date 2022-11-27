@@ -1,4 +1,4 @@
-<div class="card gedf-card mb-4" id="<%= dom_id post %>">
+<div class="card gedf-card mb-4" id="<%= dom_id(post) %>">
   <div class="card-header post-card-header">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex justify-content-between align-items-center">
@@ -46,11 +46,10 @@
     <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
     <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
     <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share </a>
+
     
-    <%= secret_clearance ? 'Yes' : 'No' %>
-    <% if user&.id == post.user_id %>
       <%= button_to "Edit this post", edit_post_path(post), method: :post %> |
       <%= button_to "Destroy this post", post, method: :delete %>
-    <%end%>
+    
   </div>
 </div>

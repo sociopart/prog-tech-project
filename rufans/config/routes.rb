@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  resources :comments
   mount Sidekiq::Web => '/sidekiq'
   get 'search', to: 'search#index'
   resources :posts do
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       post 'clearance'
     end
+    resources :comments 
   end
 
   devise_for :users, controllers: {

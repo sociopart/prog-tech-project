@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many_attached :images
-
+  has_many :comments, dependent: :destroy
   def create_post(user, post)
     broadcast_prepend_to(:posts,
                         target: 'posts-block',

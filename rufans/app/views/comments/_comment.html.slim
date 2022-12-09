@@ -1,0 +1,14 @@
+div id="#{dom_id comment}"
+
+  div
+    strong CommentBody:
+    =< comment.body
+    '
+    strong UserId:
+    =< comment.user_id
+    '
+    strong ParentId:
+    =< comment.parent_id
+  = render partial: 'comments/form', locals: {comment: Comment.new, post: comment.post, parent: comment}
+  div 
+    = render comment.comments

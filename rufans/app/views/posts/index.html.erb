@@ -6,8 +6,6 @@
     <!-- Left dock end -->
     <!-- Middle dock start -->
     <div class="col-md-6">
-      <%= secret_clearance ? "Secret" : "None" %>
-      <%= link_to "Change clearance", clearance_posts_path, method: :post %>
       <div class="container">
         <div id="new-post">
           <%= render "posts/form", post: @post %>

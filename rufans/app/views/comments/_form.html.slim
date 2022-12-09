@@ -1,0 +1,10 @@
+= form_with(model: [post, comment]) do |form|
+  
+
+  div
+    - if !parent.nil?
+       = form.hidden_field :parent_id, value: parent.id
+    = form.label :body, style: "display: block"
+    = form.text_area :body
+  div
+    = form.submit

@@ -53,11 +53,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
-        format.turbo_stream do 
-          render turbo_stream: [ turbo_stream.update(@post,
-                                                   partial: "posts/form",
-                                                   locals: {post: @post}) ]
-        end
+        
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -73,9 +69,28 @@ class PostsController < ApplicationController
     end
   end
 
+  #лучшая реализация потоков через сессию но пока не до этого https://www.colby.so/posts/conditional-rendering-with-turbo-stream-broadcasts
   def clearance
     secret_clearance ? session.delete(:clearance) : session[:clearance] = true
     redirect_to posts_path
+  end
+
+  def like
+    @post = Post.find(params[:id])
+    current_user.like(@post)
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: private_stream
+      end
+    end
+  end
+
+  def private_stream
+    private_target = "#{helpers.dom_id(@post)} private_likes"
+    turbo_stream.replace(private_target,
+                         partial: "likes/private_button",
+                         locals: {post: @post, 
+                         like_status: current_user.liked?(@post), puk: true})
   end
 
   private

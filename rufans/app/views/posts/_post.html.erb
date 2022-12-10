@@ -43,10 +43,12 @@
     <% end %>
   </div>
   <div class="card-footer">
-    <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+    <%= render 'likes/private_button', 
+                post: post, 
+                like_status: like_status %>
+    
     <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
     <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share </a>
-    
     <%= secret_clearance ? 'Yes' : 'No' %>
     <% if user&.id == post.user_id %>
       <%= button_to "Edit this post", edit_post_path(post), method: :post %> |

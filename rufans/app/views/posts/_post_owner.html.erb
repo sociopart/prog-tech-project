@@ -43,7 +43,9 @@
     <% end %>
   </div>
   <div class="card-footer">
-    <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+    <%= render 'likes/private_button', 
+                post: post, 
+                like_status: like_status %>
     <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
     <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share </a>
 
@@ -51,5 +53,8 @@
       <%= button_to "Edit this post", edit_post_path(post), method: :post %> |
       <%= button_to "Destroy this post", post, method: :delete %>
     
+      <%= render 'comments/form',  parent: nil ,comment: Comment.new, post: post %>
+      <%= render partial: 'comments/comment', collection: post.comments.where(parent_id: nil).order(created_at: :desc), locals: { user: user }%>
+  
   </div>
 </div>

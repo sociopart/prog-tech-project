@@ -62,7 +62,12 @@
         <%=turbo_stream_from :posts%>
         <%=turbo_stream_from [current_user, :posts]%>
         <div id="posts-block">
-          <%= render partial: 'posts/post', collection: @posts, locals: { user: current_user }%>
+          <% @posts.each do |post| %>
+          <%= render "posts/post", post: post, 
+                                   user: current_user, 
+                                   like_status: current_user.liked?(post) %>
+        <%end%>
+
         </div>
       </div>
     </div>

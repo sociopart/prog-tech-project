@@ -20,7 +20,9 @@ class User < ApplicationRecord
            foreign_key: :follower_id,
            class_name: 'Relationship',
            dependent: :destroy
+
   has_many :comments, dependent: :destroy
+
   has_many :followees, through: :followed_users, dependent: :destroy
   
   has_many :following_users,
@@ -30,13 +32,34 @@ class User < ApplicationRecord
 
   has_many :followers, through: :following_users, dependent: :destroy
 
+  has_many :likeables, dependent: :destroy
+  has_many :liked_posts, through: :likeables, source: :post
+
   has_many :posts
   has_one_attached :avatar
+
+  def liked?(post)
+    liked_posts.include?(post)
+  end
+
+  def like(post)
+    if liked_posts.include?(post)
+      liked_posts.destroy(post)
+    else
+      liked_posts << post
+    end
+    public_target = "post_#{post.id}_public_likes"
+    broadcast_replace_to "public_likes",
+                         target: public_target,
+                         partial: "likes/like_count",
+                         locals: { post: post }
+  end
+
   private
   def set_default_role
     self.role ||= :user
   end
-
+  #есть уязвимость надо переобдумать
   def set_default_tag
     self.update_column(:user_tag, "#{self.id}")
   end

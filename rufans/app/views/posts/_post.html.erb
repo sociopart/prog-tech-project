@@ -10,15 +10,17 @@
           <% end %>
         </div>
         <div class="mx-3">
-          <div class="h7"><%= link_to post.user.name, user_path(post.user.user_tag), class: 'text-medium text-main-accent'%> </div>
           <div class="row">
-            <div class="col h5 m-0 text-mute text-medium"><%= post.user.user_tag %> </div>
-            <div class="col text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>
-            <%= link_to "10 min ago", post %>
+            <div class="col-md-9"> 
+              <div class="h7">
+                <%= link_to post.user.name, user_path(post.user.user_tag), class: 'text-medium text-main-accent'%> 
+              </div>
             </div>
           </div>
-          </div>
-      </div>
+          
+          <div class="row-12">@<%= post.user.user_tag %> </div>
+          <div class="row-12"> <%= link_to "10 min ago", post %> </div>
+        </div>
       <div>
         <div class="dropdown">
           <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -7,8 +7,11 @@
   --text-weight-medium: 500;
   --text-weight-big: 600;
   --text-size-big: 32px;
+  --main-font: 'Manrope';
 }
-
+.font-main {
+  font-family: var(--main-font);
+}
 .text-main-accent {
   color: var(--site-accent-color);
 }
@@ -75,7 +78,13 @@
   margin-top: 0.97rem;
   border-radius: 15px;
 }
-
+.gedf-card {
+  border-radius: 25px;
+  border: 2px solid var(--bs-card-border-color);
+}
+.card-header:first-child {
+  border-radius: 25px;
+}
 @media (min-width: 992px) {
   .gedf-main {
     padding-left: 4rem;

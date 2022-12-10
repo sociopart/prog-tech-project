@@ -1,33 +1,39 @@
 <div class="col-md-2">
   <div class="container">
     <div class="row py-2">
-      <i class="fe fe-home"></i>
-      <%= link_to "Главная", posts_path %>
+      <i class="fe fe-home">
+        <%= link_to "Главная", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="fe fe-bell"></i>
-      <i data-feather="circle"></i>
-      <a>Уведомления</a>
+      <i class="fe fe-bell">
+        <%= link_to "Уведомления", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="icon"></i>
-      <a>Сообщения</a>
+      <i class="fe fe-comments">
+        <%= link_to "Сообщения", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="fe fe-star-o"></i>
-      <a>Избранное</a>
+      <i class="fe fe-star-o">
+        <%= link_to "Избранное", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="icon"></i>
-      <a>Подписки</a>
+      <i class="fe fe-users">
+        <%= link_to "Подписки", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="icon"></i>
-      <a>Добавить карту</a>
+      <i class="fe fe-wallet">
+        <%= link_to "Добавить карту", posts_path, class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-2">
-      <i class="icon"></i>
-      <%= link_to "Мой профиль", user_path(current_user.user_tag) %>
+      <i class="fe fe-user">
+        <%= link_to "Мой профиль", user_path(current_user.user_tag), class: 'font-main text-main-accent' %>
+      </i>
     </div>
     <div class="row py-3">
       <i class="icon"></i>

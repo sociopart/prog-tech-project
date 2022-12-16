@@ -1,0 +1,33 @@
+<div id=<%= dom_id(comment) %> class="mt-3 mb-3">
+  <div class="row-md-12">
+    <div class="mr-3 comment-avatar">
+      <img class="img-fluid rounded-circle" src="https://picsum.photos/64/64" alt="" width="64">
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="textbox">
+          <h6 class="comment-username text-main-accent">
+            <%=comment.user.name %>
+          </h6>
+          <h5>
+            <%= comment.body %> 
+          </h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="reply-block"> 
+          <%= button_to "", class: "btn" do %>
+            <i class="fe fe-comment-o text-main-accent"></i>
+          <% end %> 
+        </div>
+        
+      </div>
+    </div>
+    <%= render partial: 'comments/form', locals: {comment: Comment.new, post: comment.post, parent: comment} %>
+    <%- if !comment.comments.nil? %>
+      <div class="container mt-3 mb-3 ms-3">
+        <%= render comment.comments %>
+      </div>
+    <% end %>
+  </div>
+</div>

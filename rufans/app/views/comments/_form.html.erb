@@ -1,0 +1,21 @@
+<%= form_with(model: [post, comment]) do |form| %>
+  <div class="row-md-12">
+    <%- if !parent.nil? %>
+      <%= form.hidden_field :parent_id, value: parent.id %>
+    <% end %>
+    <div class="mr-3 comment-avatar">
+      <% if post.user.avatar.attached? %>
+        <%= image_tag(post.user.avatar, class: 'rounded-circle', alt: '') %>
+      <% else %>
+        <img class="img-fluid rounded-circle" src="https://picsum.photos/64/64" alt="" width="64">
+      <% end %>
+    </div>
+    <div class="search">
+      <%= form.text_field :body, placeholder: "Write a comment", type: "text" %>
+      <%= form.button :submit do %>
+        <i class="fe fe-comment"></i>
+      <% end %>
+    </div>
+    <!--/. Search -->
+  </div>
+<% end %>

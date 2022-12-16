@@ -1,5 +1,18 @@
 <%= turbo_frame_tag "#{dom_id(post)} private_likes" do %>
-  <% like_text = like_status ? "Unlike" : "Like" %>
-  <%= button_to like_text, like_post_path(id: post.id) %>
-  <%= render 'likes/like_count', post: post %>
+  <%- if like_status %>
+    <%= button_to like_post_path(id: post.id), class: 'btn btn-main' do %>
+      <i class="fe fe-heart-o icon-size-medium"> 
+        <%= render 'likes/like_count', post: post %>
+      </i>
+    <% end %>
+  <% else %>
+    <%= button_to like_post_path(id: post.id), class: 'btn btn-sub-accent' do %>
+      <i class="fe fe-heart-o text-main-accent icon-size-medium"> 
+        <%= render 'likes/like_count', post: post %>
+      </i>
+    <% end %>
+  <% end %>
+  
+</button>
+ 
 <%end%>

@@ -21,17 +21,20 @@
   font-weight: var(--text-weight-medium);
   font-size: var(--text-size-medium);
 }
+
 .text-big {
   font-style: normal;
   font-weight: var(--text-weight-big);
   font-size: var(--text-size-big);
 }
+
 .btn-big {
   align-items: center;
   width: 50%;
   font-weight: 700;
   text-align: center;
 }
+
 .rounded-corners {
   border-radius: var(--basic-element-border);
 }
@@ -208,4 +211,25 @@ img {
   width: 100%;
   height: 300px;
   background:var(--site-accent-color);
+}
+
+.btn-sub-accent {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #ECECEC;
+  --bs-btn-border-color: #ECECEC;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #ECECEC;
+  --bs-btn-hover-border-color: #ECECEC;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #ECECEC;
+  --bs-btn-active-border-color: #ECECEC;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #ECECEC;
+  --bs-btn-disabled-border-color: #ECECEC;
+}
+
+.icon-size-medium {
+  transform: scale(1.25, 1.25);
 }

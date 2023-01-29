@@ -49,7 +49,7 @@ class User < ApplicationRecord
       liked_posts << post
     end
     public_target = "post_#{post.id}_public_likes"
-    broadcast_replace_to "public_likes",
+    broadcast_replace_to :posts,
                          target: public_target,
                          partial: "likes/like_count",
                          locals: { post: post }

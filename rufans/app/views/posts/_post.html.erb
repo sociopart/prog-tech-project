@@ -53,14 +53,11 @@
     <!--/ cardbox-heading -->
 
     <div class="cardbox-item container mb-3">
+      
       <div class="container">
         <div class="container">
-          <%= post.body %>
-          
-          <div class="container-fluid">
-            <% post.images.each do |image| %>
-              <%= image_tag(image, style:"width:300px; height: auto")%><br/>
-            <% end %>
+          <div class="container" id="<%= dom_id(post, :body) %>">
+            <%= render 'posts/body', post: post %>
           </div>
         </div>
       </div>
@@ -68,7 +65,7 @@
     <!--/ cardbox-item -->
     <div class="cardbox-base container mb-2">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" id="<%= dom_id(post, :like) %>">
           <%= render 'likes/private_button', post: post, like_status: like_status %>
         </div>
 
@@ -80,10 +77,10 @@
       </div>
     </div>
     <!--/ cardbox-base -->
-    <div class="cardbox-comments">
+    <div class="cardbox-comments" id="<%= dom_id(post, :comments) %>">
       <%= render partial: 'comments/comment', collection: post.comments.where(parent_id: nil).order(created_at: :desc), locals: { user: user, post: post }%>
       <%= render 'comments/form',  parent: nil ,comment: Comment.new, post: post %>
-      </div>
+    </div>
     <!--/ cardbox-like -->
   </div>
     <!--/ cardbox -->

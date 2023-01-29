@@ -4,7 +4,14 @@ class PostsController < ApplicationController
   helper_method :current_user
 
   def index
-    @posts = Post.order(created_at: :desc)
+    @current_user_posts = Post.where(user_id: current_user.id)
+    @posts = Post.none
+    current_user.followees.each do |fl|
+      @posts |= fl.posts
+    end
+    @posts.sort_by{|e| e[:created_at]}
+    @posts |= @current_user_posts
+
     @post = Post.new
   end
 

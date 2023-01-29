@@ -1,8 +1,6 @@
-<p>
-  <strong>Body:</strong>
-  <%= post.body %>
-</p>
-<p>
-  <%= link_to "Show this tweet", post %>
-  <%= link_to "Edit this post", edit_post_path(post) %>
-</p>
+<%= post.body %> 
+<div class="container-fluid">
+  <% post.images.each do |image| %>
+    <%= image_tag(image, style:"width:300px; height: auto")%><br/>
+  <% end %>
+</div>

@@ -30,6 +30,14 @@ services:
     volumes:
       - ./rufans:/rufans
       - '/rufans/tmp' # don't mount tmp directory
+  # Anycable
+  anycable:
+    image: 'anycable/anycable-go:1.0'
+    restart: always
+    ports:
+      - '90:8080'
+    env_file:
+      - ./.secrets/secrets.env
 
   # Main project container
   web:

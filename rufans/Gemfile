@@ -31,6 +31,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "anycable-rails", "~> 1.1"
+gem "anycable-rails-jwt"
 #slim
 gem "slim-rails"
 
@@ -96,3 +98,4 @@ group :test do
 end
 
 gem "ransack", "~> 3.2"
+

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= action_cable_with_jwt_meta_tag %>
     <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "common", "data-turbo-track": "reload" %>
@@ -64,7 +65,6 @@
     </header>
 
       <%=Time.zone.now%>
-      <%= current_user.id %>
       <%= yield %>
     </main>
   </body>

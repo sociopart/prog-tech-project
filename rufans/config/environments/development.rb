@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Specify AnyCable WebSocket server URL to use by JS client
   config.after_initialize do
-    config.action_cable.url = ActionCable.server.config.url = ENV.fetch("CABLE_URL", "ws://ws:8080/cable") if AnyCable::Rails.enabled?
+    config.action_cable.url = ActionCable.server.config.url = ENV.fetch("CABLE_URL", "/cable") if AnyCable::Rails.enabled?
   end
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -75,5 +75,5 @@ Rails.application.configure do
   #change actual :host after deploy
   config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
 
-  config.action_cable.url = "localhost:8080/cable"
+  config.action_cable.url = "/cable"
 end

@@ -35,7 +35,7 @@ x-backend: &backend
     <<: *env
     REDIS_URL: redis://redis:6379/
     DATABASE_URL: postgres://postgres:postgres@postgres:5432
-    CABLE_URL: ws://ws:8080/cable
+    CABLE_URL: ws://localhost:8080/cable
     #CHROME_URL: http://chrome:3333
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: postgres

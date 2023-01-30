@@ -18,17 +18,13 @@ endif
 	sudo chmod +x /usr/local/bin/docker-compose
 
 preinstall:
-	docker-compose create 
-	docker-compose build 
-	docker-compose start
-	docker-compose exec web rake db:drop db:create db:migrate
-	docker-compose stop
+	docker-compose run --rm runner
 
 install:
-	docker-compose start
-	docker-compose exec web rake db:migrate
-	docker-compose run web sh
-
+	bundle install
+	rails db:create db:migrate
+	yarn install
+	
 runserver:
 	docker-compose up
 

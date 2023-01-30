@@ -76,4 +76,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
 
   config.action_cable.url = "/cable"
+  config.turbo.signed_stream_verifier_key = "some-secret-key"
 end

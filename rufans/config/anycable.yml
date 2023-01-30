@@ -27,7 +27,8 @@ default: &default
   redis_channel: "__anycable__"
   # You can use REDIS_URL env var to configure Redis URL.
   # Localhost is used by default.
-
+  jwt_id_key: "some-secret-key"
+  
 development:
   <<: *default
 

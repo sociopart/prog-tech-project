@@ -1,23 +1,23 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
-  resources :comments
   mount Sidekiq::Web => '/sidekiq'
   get 'search', to: 'search#index'
   resources :posts do
     member do
       post :edit
     end
-    collection do
-      post 'clearance'
+    resources :comments do
+      member do
+        post :edit
+      end
     end
-    resources :comments 
   end
 
   post 'like/:id', to: 'posts#like', as: 'like_post'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations',
+    registrations: 'users/registrations'
 
   }, :path => '',
      :path_names => { 

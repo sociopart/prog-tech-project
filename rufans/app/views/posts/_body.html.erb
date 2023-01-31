@@ -1,6 +1,14 @@
-<%= post.body %> 
-<div class="container-fluid">
-  <% post.images.each do |image| %>
-    <%= image_tag(image, style:"width:300px; height: auto")%><br/>
-  <% end %>
+<div class="cardbox-item container mb-3" id="<%= dom_id(post, :body) %>">
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <%= post.body %> 
+        <div class="container-fluid">
+          <% post.images.each do |image| %>
+            <%= image_tag(image, style:"width:300px; height: auto")%><br/>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -39,7 +39,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        @post.create_post(current_user, @post)
         format.turbo_stream do 
         end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -55,7 +54,6 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.turbo_stream do 
-          @post.update_post(current_user, @post)
         end
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
@@ -77,11 +75,12 @@ class PostsController < ApplicationController
   end
 
   #лучшая реализация потоков через сессию но пока не до этого https://www.colby.so/posts/conditional-rendering-with-turbo-stream-broadcasts
-  def clearance
-    secret_clearance ? session.delete(:clearance) : session[:clearance] = true
-    redirect_to posts_path
-  end
+  # def clearance
+  #   secret_clearance ? session.delete(:clearance) : session[:clearance] = true
+  #   redirect_to posts_path
+  # end
 
+  #надо бы перенести в другое место или net, xz
   def like
     @post = Post.find(params[:id])
     current_user.like(@post)

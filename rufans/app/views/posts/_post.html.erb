@@ -51,18 +51,9 @@
         </div>
     </div>
     <!--/ cardbox-heading -->
-
-    <div class="cardbox-item container mb-3">
-      
-      <div class="container">
-        <div class="container">
-          <div class="container" id="<%= dom_id(post, :body) %>">
-            <%= render 'posts/body', post: post %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'posts/body', post: post %>
     <!--/ cardbox-item -->
+    <!--/nado zasunut v otdelni partial sled <div> -->
     <div class="cardbox-base container mb-2">
       <div class="row">
         <div class="col-md-2" id="<%= dom_id(post, :like) %>">
@@ -78,7 +69,7 @@
     </div>
     <!--/ cardbox-base -->
     <div class="cardbox-comments" id="<%= dom_id(post, :comments) %>">
-      <%= render partial: 'comments/comment', collection: post.comments.where(parent_id: nil).order(created_at: :desc), locals: { user: user, post: post }%>
+      <%= render partial: 'comments/comment', collection: post.comments.where(parent_id: nil).order(created_at: :desc), locals: { user: user, post: post } %>
       <%= render 'comments/form',  parent: nil ,comment: Comment.new, post: post %>
     </div>
     <!--/ cardbox-like -->

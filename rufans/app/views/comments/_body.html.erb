@@ -1,6 +1,10 @@
-<h6 class="comment-username text-main-accent">
-  <%= comment.user.name %>
-</h6>
-<h5>
-  <%= comment.body %> 
-</h5>
+<div class="col-md-9" id="<%= "#{dom_id(comment, :body)}" %>">
+  <div class="textbox">
+    <h6 class="comment-username text-main-accent">
+      <%= comment.user.name %>
+    </h6>
+    <h5>
+      <%= comment.body %> 
+    </h5>
+  </div>
+</div>

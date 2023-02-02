@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one_attached :avatar
-
+  has_one_attached :banner
   def liked?(post)
     liked_posts.include?(post)
   end

@@ -60,11 +60,7 @@
           <%= render 'likes/private_button', post: post, like_status: like_status %>
         </div>
 
-        <div class="col-md-2">
-          <button type="button" class="btn btn-sub-accent">
-                <i class="fe fe-comment-o"> <%=post.comments.count%></i>
-          </button>
-        </div>
+        <%= render 'comments/comment_count', post: post %>
       </div>
     </div>
     <!--/ cardbox-base -->

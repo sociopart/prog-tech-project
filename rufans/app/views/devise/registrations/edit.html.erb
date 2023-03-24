@@ -46,71 +46,139 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>  
   <div class="container">
-    <h1>Edit Profile</h1>
-    <hr>
+
   <div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <%= image_tag(current_user.avatar, style:"width:150px; height: 150px; border-radius:100%") if current_user.avatar.attached? %>
-          <h6>Upload a different photo...</h6>
-          <div class="form-control">
-            <%= f.label :avatar %><br />
-            <%= f.file_field :avatar %>
-        </div>
+      <div class="col-md-2">
+        <!-- Left dock start -->
+        <%=render 'navigation/left_dock'%>
+        <!-- Left dock end -->
       </div>
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <h3>Personal info</h3>
+      <div class="col-md-8">
+        <div class="cardbox shadow-lg bg-white">
+          <div class="cardbox-heading">
+            <h4>Профиль</h4>
+            <hr>
+          </div>
+          <!--/ cardbox-heading -->
       
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Name:</label>
-            <div class="col-lg-8">
-              <div class="field">
-                <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <div class="cardbox-item container mb-3">
+            <div class="container">
+              <div class="card gedf-card mb-4 profile-card" id="">
+                <div class="fill">
+                  <img src="https://picsum.photos/860/250" alt="">
+                </div>
               </div>
-            </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">@tag:</label>
-            <div class="col-lg-8">
-              <div class="field">
-                <%= f.text_field :user_tag, autofocus: true, autocomplete: "user_tag" %>
+              <div class="card gedf-card mb-4 profile-card" id="">
+                <div class="profile-avatar">
+                  <img src="https://picsum.photos/860/250" alt="">
+                </div>
               </div>
-            </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Nickname:</label>
-            <div class="col-lg-8">
-              <div class="field">
-                <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+              <div class="text-center">
+                <%= image_tag(current_user.avatar, style:"width:150px; height: 150px; border-radius:100%") if current_user.avatar.attached? %>
+                <h6>Upload a different photo...</h6>
+                <div class="form-control">
+                  <%= f.label :avatar %><br />
+                  <%= f.file_field :avatar %>
               </div>
-            </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-              <div class="col-lg-8">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </div>
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-lg-3 control-label">Name:</label>
+                    <div class="col-lg-8">
+                      <div class="field">
+                        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+                      </div>
+                    </div>
+                  </div>
+                  
+      
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-lg-3 control-label">@tag:</label>
+                    <div class="col-lg-8">
+                      <div class="field">
+                        <%= f.text_field :user_tag, autofocus: true, autocomplete: "user_tag" %>
+                      </div>
+                    </div>
+                  </div>
+                  
+      
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-lg-3 control-label">Nickname:</label>
+                    <div class="col-lg-8">
+                      <div class="field">
+                        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+                      </div>
+                    </div>
+                  </div>
+                  
+                <div class="form-group">
+                    <div class="row">
+                      <label class="col-lg-3 control-label">Email:</label>
+                      <div class="col-lg-8">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+      
+                <div class="form-group">
+                  <div class="row">
+                    <%= f.label :current_password, class: "col-md-3 control-label" %>
+                    <div class="col-md-8">
+                      <%= f.password_field :current_password, autocomplete: "current-password" %>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-md-3 control-label"></label>
+                    <%= f.submit "Save Changes", class: "btn btn-outline-main rounded-rect me-2" %>
+                </div>
+              </form>
             </div>
           </div>
+          <!--/ cardbox-item -->
+          <div class="cardbox-base container mb-2">
+            <div class="row">
 
-          <div class="form-group">
-            <%= f.label :current_password, class: "col-md-3 control-label" %> <i>(we need your current password to confirm your changes)</i><br />
-            <div class="col-md-8">
-              <%= f.password_field :current_password, autocomplete: "current-password" %>
             </div>
           </div>
-          
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="btn btn-primary">
-              <%= f.submit "Save Changes" %>
+          <!--/ cardbox-base -->
+          <div class="cardbox-comments">
             </div>
-          </div>
-        </form>
+          <!--/ cardbox-like -->
+        </div>
+        <!--/ cardbox -->
       </div>
+      <div class="col-md-2">
+        <div class="cardbox shadow-lg bg-white">
+      
+          <div class="cardbox-item container mb-3">
+            <div class="container">
+              <div class="container">
+                <div class="row py-2">
+                  <i class="fe fe-users">
+                    <h5>Профиль</h5>
+                  </i>
+                </div>
+                <div class="row py-2">
+                  <i class="fe fe-users">
+                    <h5>Учетная запись</h5>
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ cardbox-like -->
+        </div>
+        <!--/ cardbox -->
+      </div>
+      </div>
+      <!-- left column -->
+      <!-- edit form column -->
   </div>
   </div>
   <hr>

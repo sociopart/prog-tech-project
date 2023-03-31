@@ -21,19 +21,6 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <%= f.label :birthday, class: "form-label" %>
-                  <%= f.date_field :birthday, class: "form-label form-control form-control-lg", autofocus: true, autocomplete: "#{Time.now}" %>
-                </div>
-
-                <table>
-                      <td><%= f.label 'gender', 'women?' %></td>
-                      <td><%= f.radio_button :gender, true %></td>
-                    
-                      <td><%= f.label 'gender', 'Men' %></td>
-                      <td><%= f.radio_button :gender, false %></td>
-                </table>
-
-                <div class="form-outline mb-4">
                   <%= f.label :password, class: "form-label" %>
                   <% if @minimum_password_length %>
                   <em>(<%= 8 %> characters minimum)</em>
@@ -41,10 +28,6 @@
                   <%= f.password_field :password, class: "form-label form-control form-control-lg", autocomplete: "new-password" %>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <%= f.label :password_confirmation %><br />
-                  <%= f.password_field :password_confirmation, class: "form-label form-control form-control-lg", autocomplete: "new-password" %>
-                </div>
 
                 <div class="d-flex justify-content-center">
                     <div class="actions">

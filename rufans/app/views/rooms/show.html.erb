@@ -1,0 +1,13 @@
+<h1><%= @room.title %></h1>
+<h1><%= current_user.name%></h1>
+<%= turbo_stream_from "room_#{@room.id}", channel: RoomChannel, data: {room_id: @room.id} %>
+
+<%= turbo_frame_tag 'messages', data: {controller: 'messages', 'messages-user-value': current_user.id} do %>
+  <% @room.messages.includes(:user).each do |msg| %>
+    <article>
+      <%= render msg %>
+    </article>
+  <%end%>
+<%end%>
+
+<%= render 'messages/form', message: @message %>

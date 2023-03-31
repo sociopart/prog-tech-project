@@ -30,7 +30,7 @@ gem 'redis-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
+gem 'after_commit_everywhere', '~> 1'
 gem "anycable-rails", "~> 1.1"
 gem "anycable-rails-jwt"
 #slim
@@ -43,7 +43,7 @@ gem 'autoprefixer-rails'
 gem 'sass-rails'
 
 gem 'devise'
-
+gem 'omniauth'
 gem "image_processing", ">= 1.2"
 
 gem 'jquery-rails' 

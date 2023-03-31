@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_inclusion_of :gender, :in => [true, false]
+  #validates_inclusion_of :gender, :in => [true, false]
   enum role: [:user, :seller, :admin]
   after_initialize :set_default_role, :if => :new_record? 
   after_create :set_default_tag, :if => :persisted? 
@@ -14,8 +14,10 @@ class User < ApplicationRecord
                       length: { within: 8..128 },
                       on: :update, allow_nil: true,
                       if: :encrypted_password_changed?
-  validates :birthday, presence: true
+  #validates :birthday, presence: true
+  
 
+  has_many :messages, dependent: :destroy
   has_many :followed_users,
            foreign_key: :follower_id,
            class_name: 'Relationship',
@@ -53,6 +55,10 @@ class User < ApplicationRecord
                          target: public_target,
                          partial: "likes/like_count",
                          locals: { post: post }
+  end
+
+  def member_of?(room)
+    room.users.include?(self)
   end
 
   private

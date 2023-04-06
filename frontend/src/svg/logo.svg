@@ -1,0 +1,16 @@
+<svg width="211" height="57" viewBox="0 0 211 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Logo group">
+<g id="logo">
+<path id="Vector" d="M41.8041 17.8719C40.7767 16.7913 39.5569 15.9341 38.2143 15.3493C36.8717 14.7645 35.4327 14.4634 33.9794 14.4634C32.5262 14.4634 31.0871 14.7645 29.7445 15.3493C28.402 15.9341 27.1821 16.7913 26.1548 17.8719L24.0226 20.1134L21.8904 17.8719C19.8152 15.6902 17.0006 14.4646 14.0658 14.4646C11.1309 14.4646 8.31631 15.6902 6.24108 17.8719C4.16585 20.0535 3 23.0125 3 26.0978C3 29.1831 4.16585 32.1421 6.24108 34.3237L8.37325 36.5652L24.0226 53.0171L39.6719 36.5652L41.8041 34.3237C42.832 33.2437 43.6473 31.9613 44.2036 30.5499C44.7599 29.1384 45.0463 27.6256 45.0463 26.0978C45.0463 24.57 44.7599 23.0572 44.2036 21.6457C43.6473 20.2343 42.832 18.9519 41.8041 17.8719V17.8719Z" stroke="#FDF7FA" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="plus-circle">
+<path id="Vector_2" d="M47.1586 20.6829C50.937 20.6829 54.0001 17.6199 54.0001 13.8415C54.0001 10.063 50.937 7 47.1586 7C43.3802 7 40.3171 10.063 40.3171 13.8415C40.3171 17.6199 43.3802 20.6829 47.1586 20.6829Z" fill="#60435F" stroke="#FDF7FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M47.0342 10.9805V16.4536" stroke="#FDF7FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M44.2976 13.7171H49.7708" stroke="#FDF7FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="rufans">
+<text fill="#FDF7FA" xml:space="preserve" style="white-space: pre" font-family="Lato" font-size="48" letter-spacing="0em"><tspan x="101.082" y="47.576">fans</tspan></text>
+<text fill="#FDF7FA" xml:space="preserve" style="white-space: pre" font-family="Lato" font-size="48" font-weight="800" letter-spacing="0em"><tspan x="55.3793" y="47.576">ru</tspan></text>
+</g>
+</g>
+</svg>
